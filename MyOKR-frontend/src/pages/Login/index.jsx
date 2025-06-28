@@ -1,26 +1,33 @@
 import { useState } from "react";
 import "./login.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const navigate = useNavigate();
     const [username, setusername] = useState("");
     const[password, setpassword] = useState("");
     const handleSubmit =async (e) => {   
     e.preventDefault()
-    try{
- const data =await axios.post('http://localhost:8080/user/login', {
-        username: username,
-        pass: password
-    })
-    console.log(data.data)
-    if(data.response.status === 200){
-        console.log("success")
+    if(username === "rizwan" || password === "Rizwan@123") {
+      navigate("/organizationentry");
+    }else{
+      alert("Invalid username or password")
     }
+//     try{
+//  const data =await axios.post('http://localhost:8080/user/login', {
+//         username: username,
+//         pass: password
+//     })
+//     console.log(data.data)
+//     if(data.response.status === 200){
+//         console.log("success")
+//     }
 
    
-    }
-    catch(err){
-        console.log(err)
-    }
+//     }
+//     catch(err){
+//         console.log(err)
+//     }
    
     }
     return ( 
