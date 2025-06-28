@@ -8,7 +8,7 @@ const Login = () => {
     const[password, setpassword] = useState("");
     const handleSubmit =async (e) => {   
     e.preventDefault()
-    if(username === "rizwan" || password === "Rizwan@123") {
+    if(username === "rizwan" && password === "Rizwan@123") {
       navigate("/organizationentry");
     }else{
       alert("Invalid username or password")
